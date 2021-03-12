@@ -6,6 +6,10 @@ import androidx.room.PrimaryKey;
 
 import java.io.Serializable;
 
+/**
+ * Created by Fernando Moreno on 12/3/2021.
+ */
+
 //define table name
 @Entity(tableName = "table_name")
 public class MainData implements Serializable {

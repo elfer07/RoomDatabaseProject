@@ -12,7 +12,7 @@
         android:id="@+id/edit_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="Ingrese Texto"
+        android:hint="@string/ingrese_texto"
         android:padding="12dp"
         android:background="@android:drawable/editbox_background"/>
 
@@ -27,14 +27,14 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:id="@+id/bt_add"
-            android:text="Agregar"/>
+            android:text="@string/agregar"/>
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:id="@+id/bt_reset"
-            android:text="Reset"/>
+            android:text="@string/borrar_todo"/>
 
     </LinearLayout>
 
@@ -43,7 +43,7 @@
         android:layout_height="match_parent"
         android:id="@+id/recycler_view"
         android:layout_marginTop="8dp"
-        tools:listitem="@layout/list_row_main"/>
+        tools:listitem="@layout/list_item"/>
 
 
 </LinearLayout>

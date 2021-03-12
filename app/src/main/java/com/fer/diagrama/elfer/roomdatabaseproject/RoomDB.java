@@ -6,6 +6,10 @@ import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
+/**
+ * Created by Fernando Moreno on 12/3/2021.
+ */
+
 //add database entities
 @Database(entities = {MainData.class}, version = 1, exportSchema = false)
 public abstract class RoomDB extends RoomDatabase {
@@ -21,7 +25,7 @@ public abstract class RoomDB extends RoomDatabase {
             //initialize database
             database = Room.databaseBuilder(context.getApplicationContext(), RoomDB.class,DATABASE_NAME)
                     .allowMainThreadQueries()
-                    .fallbackToDestructiveMigration()
+                    .fallbackToDestructiveMigration() // add this if you should modify MainData, then you dodge crash application
                     .build();
         }
         return database;

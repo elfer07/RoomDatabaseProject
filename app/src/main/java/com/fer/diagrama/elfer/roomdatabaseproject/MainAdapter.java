@@ -14,7 +14,13 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.snackbar.Snackbar;
+
 import java.util.List;
+
+/**
+ * Created by Fernando Moreno on 12/3/2021.
+ */
 
 public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
 
@@ -34,7 +40,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
     @Override
     public MainAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         //initialize view
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_row_main,parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_item,parent, false);
         return new ViewHolder(view);
     }
 
@@ -106,6 +112,16 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
                 dataList.remove(position);
                 notifyItemRemoved(position);
                 notifyItemRangeChanged(position, dataList.size());
+                Snackbar
+                        .make(v, "ELiminado!", Snackbar.LENGTH_LONG)
+                        .setAction("DESHACER", new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                database.mainDao().insert(d);
+                                notifyItemRangeChanged(position, dataList.size());
+                                context.recreate();
+                            }
+                        }).show();
             }
         });
 

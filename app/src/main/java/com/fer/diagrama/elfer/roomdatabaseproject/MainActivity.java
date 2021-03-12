@@ -12,6 +12,10 @@ import android.widget.EditText;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Created by Fernando Moreno on 12/3/2021.
+ */
+
 public class MainActivity extends AppCompatActivity {
 
     //initialize variables
